@@ -17,6 +17,7 @@ import { verifyToken } from "./middleware/auth.js";
 import User from "./models/User.js";
 import Post from "./models/Post.js";
 import { users, posts } from "./data/index.js";
+import { createGroup } from "./controllers/users.js";
 
 /*CONFIG*/
 const __filename = fileURLToPath(import.meta.url);
@@ -45,6 +46,12 @@ const upload = multer({ storage: storage });
 // Routes
 app.post("/auth/upload", upload.single("picture"), register);
 app.post("/posts", verifyToken, upload.single("picture"), createPost);
+app.post(
+  "/users/:userId/createGroup",
+  verifyToken,
+  upload.single("picture"),
+  createGroup
+);
 
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);

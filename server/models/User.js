@@ -37,6 +37,10 @@ const userSchema = mongoose.Schema(
     occupation: String,
     viewedProfile: String,
     impression: String,
+    groups: {
+      type: Array,
+      default: [],
+    }, 
   },
   {
     timestamps: true,
