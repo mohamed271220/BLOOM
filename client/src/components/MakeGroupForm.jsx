@@ -169,6 +169,7 @@ const MakeGroupForm = () => {
           </Box>
         </form>
       )}
+      <Box></Box>
     </Formik>
   );
 };
